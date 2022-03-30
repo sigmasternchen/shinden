@@ -13,7 +13,7 @@ template() {
 
     _dumpRawBuffer() {
         # {{ can not occour in raw _buffer
-        _script+="printf '%s' $(printf "{{%s{{" "$_buffer" | sed "s/'/\\\'/g" | sed "s/{{/'/g")"
+        _script+="printf '%s' $(printf "{{%s{{" "$_buffer" | sed "s/'/'\"'\"'/g" | sed "s/{{/'/g")"
         _script+=$'\n'
         _buffer=""
     }
@@ -90,6 +90,6 @@ template() {
         printf '%s' "$@"
     }
 
-    #echo "$_script"
+    echo "$_script" >&2
     eval "$_script"
 }
