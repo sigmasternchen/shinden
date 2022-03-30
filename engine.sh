@@ -90,6 +90,6 @@ template() {
         printf '%s' "$@"
     }
 
-    echo "$_script" >&2
+    #echo "$_script" >&2
     eval "$_script"
 }
